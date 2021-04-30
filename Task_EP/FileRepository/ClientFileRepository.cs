@@ -25,12 +25,20 @@ namespace Task_EP.FileRepository
         }
         private void WriteToFile()
         {
-            using (StreamWriter streamWriter = new StreamWriter(filePath, false))
+            if (clientArr.Count != 0)
             {
-                foreach (Client client in clientArr)
+                using (StreamWriter streamWriter = new StreamWriter(filePath, false))
                 {
-                    streamWriter.WriteLine(client.StrInfoOnly());
+                    foreach (Client client in clientArr)
+                    {
+                        streamWriter.WriteLine(client.StrInfoOnly());
+                    }
                 }
+            }
+            else 
+            {
+                StreamWriter streamWriter = new StreamWriter(filePath, false);
+                streamWriter.WriteLine("Empty arr!");
             }
         }
         private void SafetyReadItemsFromFile()
@@ -129,6 +137,13 @@ namespace Task_EP.FileRepository
         public void GetMetodToRead()
         {
             SafetyReadItemsFromFile();
+        }
+
+        public void RemoveAllItems()
+        {
+            clientArr.Clear();
+            WriteToFile();
+           
         }
     }
 }

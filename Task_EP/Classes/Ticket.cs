@@ -25,6 +25,20 @@ namespace Task_EP.Classes
             KindM = kindM;
             Price = price;
         }
+        public Ticket(Ticket ticket)
+        {
+            NameMovie = ticket.NameMovie;
+            Genre = ticket.Genre;
+            Rating = ticket.Rating;
+            KindM = ticket.KindM;
+            Price = ticket.Price;
+        }
+
+        public static Ticket operator ++(Ticket ticket1)
+        {
+            ticket1.Price += 100;
+            return ticket1;
+        }
 
         public string StrInfoOnly()
         {
@@ -47,5 +61,23 @@ namespace Task_EP.Classes
         {
             Price = value;
         }
+        public override bool Equals(object obj)
+        {
+            var otherTicket = obj as Ticket;
+
+            return this.Genre == otherTicket?.Genre && this.KindM == otherTicket?.KindM 
+                && this.Price == otherTicket?.Price && this.NameMovie == otherTicket?.NameMovie
+                && this.Rating == otherTicket?.Rating; 
+        }
+        //public bool IsTheSame(Ticket t)
+        //{
+        //    if (this.NameMovie == t.NameMovie && this.Genre == t.Genre
+        //        && this.KindM == t.KindM && this.Price == t.Price
+        //        && this.Rating == t.Rating)
+        //        return true;
+        //    else { return false; }
+            
+        //}
+         
     }
 }

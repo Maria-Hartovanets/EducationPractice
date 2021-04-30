@@ -16,6 +16,13 @@ namespace Task_EP.Classes
         {
             Movie = movie;
         }
+
+        public Client(Client cl)
+        {
+            FirstName = cl.FirstName;
+            HomeTown = cl.HomeTown;
+            Movie = cl.Movie;
+        }
         
         public override string StrInfoOnly()
         {
@@ -27,7 +34,12 @@ namespace Task_EP.Classes
             return ($"Name: {FirstName}\t|\tHome Town: {HomeTown}\t|\tMovie: {Movie}");
         }
 
-
+        public override bool Equals(object obj)
+        {
+            var otherClient = obj as Client;
+            return this.FirstName==otherClient?.FirstName && this.HomeTown==otherClient?.HomeTown
+                && this.Movie==otherClient?.Movie;
+        }
 
     }
 }

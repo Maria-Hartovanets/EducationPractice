@@ -1,6 +1,7 @@
 ﻿using System;
-using Task_EP.Classes;
 using System.Collections.Generic;
+using Task_EP.Classes;
+using System.Linq;
 
 
 namespace Task_EP.Repository
@@ -28,7 +29,13 @@ namespace Task_EP.Repository
 
         public void ChangeValue(int tempNumber, int newPrice)
         {
-            throw new NotImplementedException();
+            foreach (IClasses actor in actorArr)
+            {
+                if (tempNumber == actor.GetRating())
+                {
+                    actor.ChangePrice(newPrice);
+                }
+            }
         }
 
         public void GetMetodToRead()
@@ -38,9 +45,9 @@ namespace Task_EP.Repository
 
         public int GetSizeArr()
         {
-            return actorArr.Count;
+            return (actorArr.Count == 0) ? 0 : actorArr.Count;
         }
-        public  string PopularObjStr()
+        public string PopularObjStr()
         {
             int maxRating = actorArr[0].GetRating();
             int i = 0;
@@ -54,10 +61,31 @@ namespace Task_EP.Repository
                 }
                 i++;
             }
-            
+
             return actorArr[index].ToString();
         }
-       
+
+
+        public Actor ReturnActorInArrByIndex(int index)
+        {
+            return actorArr[index];
+        }
+
+        public bool IsExist(Actor elem)
+        {           
+            return actorArr.Any(i=>i.Equals(elem));
+        }
+
+        public bool HasElement(Actor elem)
+        {
+            bool result = false;
+            foreach(Actor item in actorArr)
+            {
+                if (item == elem)
+                    result = true;
+            }
+            return result;
+        }
 
         public void RemoveByIndex(int index)
         {

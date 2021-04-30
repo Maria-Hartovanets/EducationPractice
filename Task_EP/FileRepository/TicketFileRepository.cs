@@ -146,5 +146,25 @@ namespace Task_EP.FileRepository
         {
             SafetyReadItemsFromFile();
         }
+
+        public Ticket TheWorstTicket()
+        {
+            int minRating = ticketArr[0].GetRating();
+            int i = 0;
+            int index = 0;
+            
+
+            foreach (IClasses movie in ticketArr)
+            {
+                if (minRating > movie.GetRating())
+                {
+                    minRating = movie.GetRating();
+                    index = i;
+                }
+                i++;
+            }
+            return ticketArr[index];
+
+        }
     }
 }

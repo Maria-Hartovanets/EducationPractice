@@ -19,6 +19,26 @@ namespace Task_EP.Classes
             Rating = rating;
           
         }
+        
+        public static bool operator ==(Actor actor1,Actor actor2)
+        {
+            if (actor1.FirstName == actor2.FirstName
+                && actor1.HomeTown == actor2.HomeTown
+                && actor1.CountOfMovie == actor2.CountOfMovie
+                && actor1.Rating == actor2.Rating)
+                return true;
+            else { return false; }
+            
+        }
+        public static bool operator !=(Actor actor1, Actor actor2)
+        {
+            if (actor1.FirstName != actor2.FirstName
+                && actor1.HomeTown != actor2.HomeTown
+                && actor1.CountOfMovie != actor2.CountOfMovie
+                && actor1.Rating != actor2.Rating)
+                return true;
+            else { return false; }
+        }
         public override int GetRating()
         {
             return Rating;
@@ -33,6 +53,13 @@ namespace Task_EP.Classes
             return ($"Name: {FirstName}\t|\tHome Town: {HomeTown}" +
                  $"\t|\tAct in movies: {CountOfMovie}\t|\tRating: {Rating}");
         }
-        
+
+        public override bool Equals(object obj)
+        {
+            var otherActor = obj as Actor;
+            return this.CountOfMovie == otherActor?.CountOfMovie && this.FirstName == otherActor?.FirstName
+                && this.HomeTown == otherActor?.HomeTown && this.Rating == otherActor?.Rating;
+        }
+
     }
 }

@@ -69,5 +69,10 @@ namespace Task_EP.Response
         {
             SafetyReadItemsFromFile();
         }
+        
+        public bool IsExist(string str)
+        {
+            return response.Any(i => i.Equals(str));
+        }
     }
 }
