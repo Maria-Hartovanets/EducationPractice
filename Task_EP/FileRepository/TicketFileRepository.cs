@@ -8,7 +8,6 @@ namespace Task_EP.FileRepository
 {
     public class TicketFileRepository: IRepository<Ticket>
     {
-       
         List<Ticket> ticketArr;
         readonly string filePath;
         readonly char delim;

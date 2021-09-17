@@ -9,12 +9,10 @@ namespace Task_EP.Repository
     {
         List<T> Array();
         void Add(T temp);
-
         void RemoveByIndex(int index);
         void ChangeValue(int tempNumber, int newPrice);
         string PopularObjStr();
         int GetSizeArr();
         void GetMetodToRead();
-      
     }
 }

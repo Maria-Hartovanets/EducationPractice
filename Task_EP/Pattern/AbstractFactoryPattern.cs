@@ -9,11 +9,8 @@ namespace Task_EP.Pattern
 {
     public interface AbstractFactoryPattern
     {
-       
         IRepository<Ticket> GetRepositoryTicket();
-
         IRepository<Actor> GetRepositoryActor();
         IRepository<Client> GetRepositoryClient();
-
     }
 }

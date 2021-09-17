@@ -14,6 +14,7 @@ using Task_EP.Repository;
 using Task_EP.Classes;
 using Task_EP.Response;
 
+
 namespace CinemaUserWindowsForm
 {
     public partial class Form1 : Form
@@ -24,7 +25,7 @@ namespace CinemaUserWindowsForm
         readonly IRepository<Client> clientrep = null;
         readonly IRepository<Ticket> ticketrep = null;
 
-
+       
         readonly ResponseFile respones = null;
 
         public Form1()
@@ -40,6 +41,7 @@ namespace CinemaUserWindowsForm
             respones = new ResponseFile();
 
             popCorn= new PopCorn();
+            
         }
 
        
@@ -174,6 +176,68 @@ namespace CinemaUserWindowsForm
 
             // Navigate to a URL.
             System.Diagnostics.Process.Start("https://www.youtube.com/watch?v=modPonPyQ6E");
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
+
+     
+        public void Label26Text(string str) 
+        {
+            label26.Text = str; 
+        }
+        public void Label27Text(string str) 
+        {
+            label27.Text = str; 
+        }
+        public void MoveRight(int step) 
+        {
+            pictureBox11.Left -= step;
+        }
+        public void MoveLeft(int step)
+        {
+             pictureBox11.Left += step;
+        }
+
+        public void MoveBottom(int step)
+        {
+             pictureBox11.Top -= step;
+        }
+
+        public void MoveUp(int step)
+        {
+             pictureBox11.Top += step;
+        }
+
+
+
+       
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            label26.Text = "...";
+            label27.Text = "...";
+            
+            Form2 f = new Form2(this); // створюємо об’єкт типу Form2
+           
+            f.Show(); //виклик діалогового вікна форми Form2
+
+          
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+           
+           
         }
     }
 }

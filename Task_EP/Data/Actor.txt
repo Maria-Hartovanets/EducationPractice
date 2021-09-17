@@ -3,3 +3,4 @@ Emailia_Clark London 8 10
 Maria_Hartv Ottawa 5 2
 Yura_Hartv London 5 2
 Tom_Holand London 8 9
+Nina_Dobrev Bolgaria 7 7
